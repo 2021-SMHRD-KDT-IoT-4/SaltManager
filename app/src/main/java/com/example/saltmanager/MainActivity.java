@@ -62,4 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void changeFragment(Fragment frag){
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,
+                frag).commit();
+    }
 }
