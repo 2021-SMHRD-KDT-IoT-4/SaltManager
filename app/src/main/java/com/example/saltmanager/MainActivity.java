@@ -62,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void changeFragment(Fragment frag){
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,
-                frag).commit();
+    public void changeFragment(Fragment frag,String arg){
+        Bundle args = new Bundle();
+        args.putString("ARG_PARAM1", arg);
+        frag.setArguments(args);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout, frag).commit();
     }
 }
