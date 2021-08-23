@@ -12,6 +12,12 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import Fragment.CctvFragment;
+import Fragment.ConfigFragment;
+import Fragment.ControllFragment;
+import Fragment.HomeFragment;
+import Fragment.SensorFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottom_nv;
@@ -30,23 +36,18 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.nv_home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new HomeFragment()).commit();
-                        Toast.makeText(getApplicationContext(),"첫번째",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nv_controll:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new ControllFragment()).commit();
-                        Toast.makeText(getApplicationContext(),"첫번째",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nv_sensor:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new SensorFragment()).commit();
-                        Toast.makeText(getApplicationContext(),"첫번째",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nv_cctv:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new CctvFragment()).commit();
-                        Toast.makeText(getApplicationContext(),"첫번째",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nv_config:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new ConfigFragment()).commit();
-                        Toast.makeText(getApplicationContext(),"첫번째",Toast.LENGTH_SHORT).show();
                         break;
 
                 }
