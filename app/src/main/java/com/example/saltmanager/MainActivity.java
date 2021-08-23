@@ -3,6 +3,7 @@ package com.example.saltmanager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -29,29 +30,32 @@ public class MainActivity extends AppCompatActivity {
 
         bottom_nv = findViewById(R.id.bottom_nv);
         main_framelayout = findViewById(R.id.main_framelayout);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new HomeFragment()).commit();
         bottom_nv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                Fragment fragment = null;
+
                 switch (item.getItemId()){
                     case R.id.nv_home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new HomeFragment()).commit();
+                        fragment = new HomeFragment();
                         break;
                     case R.id.nv_controll:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new ControllFragment()).commit();
+                        fragment = new ControllFragment();
                         break;
                     case R.id.nv_sensor:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new SensorFragment()).commit();
+                        fragment = new SensorFragment();
                         break;
                     case R.id.nv_cctv:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new CctvFragment()).commit();
+                        fragment = new CctvFragment();
                         break;
                     case R.id.nv_config:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,new ConfigFragment()).commit();
+                        fragment = new ConfigFragment();
                         break;
-
                 }
 
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_framelayout,fragment).commit();
                 return true;
             }
         });
