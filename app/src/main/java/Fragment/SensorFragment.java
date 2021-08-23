@@ -23,6 +23,7 @@ public class SensorFragment extends Fragment {
 
 
         btn_GoTO_K = view.findViewById(R.id.btn_GoTO_K);
+        btn_GoTO_Z = view.findViewById(R.id.btn_GoTO_Z);
 
         btn_GoTO_K.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,14 @@ public class SensorFragment extends Fragment {
                 ((MainActivity)getActivity()).changeFragment(new SensorlistFragment(),"K");
             }
         });
+
+        btn_GoTO_Z.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).changeFragment(new SensorlistFragment(),"Z");
+            }
+        });
+
 
 
 
