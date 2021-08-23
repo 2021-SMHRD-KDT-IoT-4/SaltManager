@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/tab1"
+        android:id="@+id/nv_home"
         android:title="Home" />
     <item
-        android:id="@+id/tab2"
+        android:id="@+id/nv_controll"
         android:title="제어" />
     <item
-        android:id="@+id/tab3"
+        android:id="@+id/nv_sensor"
         android:title="센서" />
     <item
-        android:id="@+id/tab4"
+        android:id="@+id/nv_cctv"
         android:title="CCTV" />
     <item
-        android:id="@+id/tab5"
+        android:id="@+id/nv_config"
         android:title="관리" />
 </menu>
