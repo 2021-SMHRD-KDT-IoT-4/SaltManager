@@ -43,10 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         String check_id = spf.getString("id",null);
 
         intent = new Intent(LoginActivity.this,MainActivity.class);
-        if(check_id != null) {
-            startActivity(intent);
-            finish();
-        }
+
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(this);
 
