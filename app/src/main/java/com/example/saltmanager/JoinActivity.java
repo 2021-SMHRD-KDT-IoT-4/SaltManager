@@ -44,7 +44,7 @@ public class JoinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String id = et_id.getText().toString();
                 String pw = et_pw.getText().toString();
-                String url = "http://192.168.1.9:8084/Project/Join.do";
+                String url = "http://192.168.1.12:8084/Project/Join.do";
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         url,
