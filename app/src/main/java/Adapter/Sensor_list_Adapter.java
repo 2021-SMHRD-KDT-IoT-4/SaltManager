@@ -85,17 +85,17 @@ public class Sensor_list_Adapter extends BaseAdapter {
 
         if (arg.equals("z")){
             for (int j = 0; j < z_data.size(); j++){
-                tv_sensor_numbering.setText(z_data.get(j).getNumbering());
+                tv_sensor_numbering.setText(z_data.get(j).getNumbering()+"");
                 tv_sensor_zk.setText("증발지");
-                tv_sensor_indoorTemp.setText(z_data.get(j).getZ_indoor_temp());
-                tv_sensor_waterTemp.setText(z_data.get(j).getZ_water_temp());
+                tv_sensor_indoorTemp.setText(z_data.get(j).getZ_indoor_temp()+"");
+                tv_sensor_waterTemp.setText(z_data.get(j).getZ_water_temp()+"");
             }
         }else {
-            for (int j = 0; j<k_data.size();j++){
-                tv_sensor_numbering.setText(k_data.get(j).getNumbering());
+            for (int j = 0; j < k_data.size();j++){
+                tv_sensor_numbering.setText(k_data.get(j).getNumbering()+"");
                 tv_sensor_zk.setText("결정지");
-                tv_sensor_indoorTemp.setText(k_data.get(j).getK_indoor_temp());
-                tv_sensor_waterTemp.setText(k_data.get(j).getK_water_temp());
+                tv_sensor_indoorTemp.setText(k_data.get(j).getK_indoor_temp()+"");
+                tv_sensor_waterTemp.setText(k_data.get(j).getK_water_temp()+"");
             }
 
         }

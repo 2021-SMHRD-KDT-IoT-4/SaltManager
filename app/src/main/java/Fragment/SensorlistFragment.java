@@ -78,7 +78,7 @@ public class SensorlistFragment extends Fragment {
                         @Override
                         public void onResponse(String response) {
                             try {
-
+                                Log.d("test",response);
                                 JSONObject json = new JSONObject(response);
                                 JSONArray json2 = json.getJSONArray("data");
                                 Log.d("data",json2+"");
