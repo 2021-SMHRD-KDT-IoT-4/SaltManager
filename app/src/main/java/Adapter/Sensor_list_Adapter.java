@@ -48,7 +48,7 @@ public class Sensor_list_Adapter extends BaseAdapter {
         int result = 0;
         if (arg.equals("z")){
             result = z_data.size();
-        }else {
+        }else if(arg.equals("k")){
             result = k_data.size();
         }
 
@@ -60,7 +60,7 @@ public class Sensor_list_Adapter extends BaseAdapter {
         Object result = null;
         if (arg.equals("z")){
             result = z_data.get(i);
-        }else {
+        }else if(arg.equals("k")){
             result = k_data.get(i);
         }
         return result;
@@ -84,20 +84,15 @@ public class Sensor_list_Adapter extends BaseAdapter {
         Button btn_sensor_move = view.findViewById(R.id.btn_move_sen_);
 
         if (arg.equals("z")){
-            for (int j = 0; j < z_data.size(); j++){
-                tv_sensor_numbering.setText(z_data.get(j).getNumbering()+"");
+                tv_sensor_numbering.setText(z_data.get(i).getNumbering()+"");
                 tv_sensor_zk.setText("증발지");
-                tv_sensor_indoorTemp.setText(z_data.get(j).getZ_indoor_temp()+"");
-                tv_sensor_waterTemp.setText(z_data.get(j).getZ_water_temp()+"");
-            }
-        }else {
-            for (int j = 0; j < k_data.size();j++){
-                tv_sensor_numbering.setText(k_data.get(j).getNumbering()+"");
+                tv_sensor_indoorTemp.setText(z_data.get(i).getZ_indoor_temp()+"");
+                tv_sensor_waterTemp.setText(z_data.get(i).getZ_water_temp()+"");
+        }else if(arg.equals("k")) {
+                tv_sensor_numbering.setText(k_data.get(i).getNumbering()+"");
                 tv_sensor_zk.setText("결정지");
-                tv_sensor_indoorTemp.setText(k_data.get(j).getK_indoor_temp()+"");
-                tv_sensor_waterTemp.setText(k_data.get(j).getK_water_temp()+"");
-            }
-
+                tv_sensor_indoorTemp.setText(k_data.get(i).getK_indoor_temp()+"");
+                tv_sensor_waterTemp.setText(k_data.get(i).getK_water_temp()+"");
         }
 
 

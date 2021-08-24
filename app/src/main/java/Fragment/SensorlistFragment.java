@@ -130,7 +130,7 @@ public class SensorlistFragment extends Fragment {
         }else if(mParam1.equals("k")){
             k_data = new ArrayList<K_List_VO>();
             adapter = new Sensor_list_Adapter((MainActivity)getContext(),R.layout.detail_item,k_data,mParam1);
-            String url = "192.168.1.12:8084/Project/GetAll_K_Detail_Info.do";
+            String url = "http://192.168.1.12:8084/Project/GetAll_K_Detail_Info.do";
             StringRequest request = new StringRequest(
                     Request.Method.POST,
                     url,
