@@ -12,7 +12,7 @@
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:text="40.5"
+        android:text="증발지크기"
         app:layout_constraintStart_toEndOf="@+id/tv_z_numbering"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,18 +35,18 @@
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:text="결정지"
+        android:text="결정지크기"
         app:layout_constraintStart_toEndOf="@+id/tv_k_numbering"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_z_numbering"
-        android:layout_width="80dp"
+        android:layout_width="40dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:text="28.5"
+        android:text="2"
         app:layout_constraintStart_toEndOf="@+id/tv_k_place_size"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,26 +61,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_move_con_"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#7DBDFE"
-        android:fontFamily="@font/nanumsquare_aceb"
-        android:text="제어"
-        app:layout_constraintStart_toEndOf="@+id/tv_z_numbering"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#7DBDFE"
         android:fontFamily="@font/nanumsquare_aceb"
-        android:text="센서"
+        android:text="염전삭제"
         app:layout_constraintStart_toStartOf="@+id/tv_z_place_size"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
