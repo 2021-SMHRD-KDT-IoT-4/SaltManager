@@ -6,18 +6,20 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_k_water_temp"
+        android:id="@+id/tv_controll_state"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
         android:text="40.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_indoor_temp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tv_controll"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="91dp" />
 
     <TextView
-        android:id="@+id/tv_k_numbering"
+        android:id="@+id/tv_controll_numbering"
         android:layout_width="40dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
@@ -26,61 +28,53 @@
         android:text="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/tv_k_name"
+        android:id="@+id/tv_controll_zk"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
         android:text="결정지"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_numbering"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tv_controll_numbering"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="354dp" />
 
     <TextView
-        android:id="@+id/tv_k_indoor_temp"
+        android:id="@+id/tv_controll"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
-        android:text="28.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_name"
+        android:text="제어상태"
+        app:layout_constraintStart_toEndOf="@+id/tv_controll_zk"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView160"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_water_temp"
+        app:layout_constraintStart_toEndOf="@+id/tv_controll_state"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_move_con_"
+        android:id="@+id/btn_controll_move"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
         android:backgroundTint="#7DBDFE"
         android:fontFamily="@font/nanumsquare_aceb"
         android:text="제어"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_indoor_temp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView160"
+        app:layout_constraintEnd_toEndOf="@+id/textView160"
+        app:layout_constraintStart_toEndOf="@+id/tv_controll_state"
+        app:layout_constraintTop_toTopOf="@+id/textView160" />
 
-    <Button
-        android:id="@+id/btn_move_sen_"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#7DBDFE"
-        android:fontFamily="@font/nanumsquare_aceb"
-        android:text="센서"
-        app:layout_constraintStart_toStartOf="@+id/tv_k_water_temp"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
