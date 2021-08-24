@@ -75,7 +75,7 @@ public class ControllListFragment extends Fragment {
                                     Log.d("json",json+"");
                                     JSONArray json2 = json.getJSONArray("controll");
 
-                                        JSONObject json3 = (JSONObject) json2.get("");
+                                        JSONObject json3 = (JSONObject) json2.get(1);
                                         String numbering = json3.getString("numbering");
 
 
