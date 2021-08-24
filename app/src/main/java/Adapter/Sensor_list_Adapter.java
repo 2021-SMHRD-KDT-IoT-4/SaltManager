@@ -12,7 +12,6 @@ import com.example.saltmanager.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import Model.K_List_VO;
 import Model.Z_List_VO;
@@ -80,8 +79,8 @@ public class Sensor_list_Adapter extends BaseAdapter {
 
         TextView tv_sensor_numbering = view.findViewById(R.id.tv_sensor_numbering);
         TextView tv_sensor_zk = view.findViewById(R.id.tv_sensor_zk);
-        TextView tv_sensor_indoorTemp = view.findViewById(R.id.tv_sensor_watertemp);
-        TextView tv_sensor_waterTemp = view.findViewById(R.id.tv_sensor_watertemp);
+        TextView tv_sensor_indoorTemp = view.findViewById(R.id.tv_sensor_indoor_temp);
+        TextView tv_sensor_waterTemp = view.findViewById(R.id.tv_sensor_water_temp);
         Button btn_sensor_move = view.findViewById(R.id.btn_move_sen_);
 
         if (arg.equals("z")){
@@ -92,7 +91,7 @@ public class Sensor_list_Adapter extends BaseAdapter {
                 tv_sensor_waterTemp.setText(z_data.get(j).getZ_water_temp());
             }
         }else {
-            for (int j = 0; j<k_data.size(); j++){
+            for (int j = 0; j<k_data.size();j++){
                 tv_sensor_numbering.setText(k_data.get(j).getNumbering());
                 tv_sensor_zk.setText("결정지");
                 tv_sensor_indoorTemp.setText(k_data.get(j).getK_indoor_temp());

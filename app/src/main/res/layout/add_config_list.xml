@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_k_numbering"
+        android:id="@+id/tv_sensor_numbering"
         android:layout_width="40dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
@@ -36,7 +36,7 @@
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
         android:text="결정지크기"
-        app:layout_constraintStart_toEndOf="@+id/tv_k_numbering"
+        app:layout_constraintStart_toEndOf="@+id/tv_sensor_numbering"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
