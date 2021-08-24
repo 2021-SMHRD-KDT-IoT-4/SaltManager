@@ -79,16 +79,9 @@ public class LoginActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 if (response.equals("1")) {
                                     Toast.makeText(LoginActivity.this,"로그인 성공",Toast.LENGTH_SHORT).show();
-
-
-
-
                                     SharedPreferences.Editor editor = spf.edit();
-
                                     editor.putString("id",et_id);
                                     editor.commit();
-
-
                                     startActivity(intent);
                                     finish();
 
