@@ -115,7 +115,6 @@ public class ConfigFragment extends Fragment {
                                 int k_automode = json3.getInt("k_automode");
                                 int node = json3.getInt("node");
 
-
                                 K_List_VO vo = new K_List_VO(numbering, k_salinity, k_indoor_temp, k_water_temp, k_wire_temp,
                                         k_water_high, k_daily_prod, k_harvest, k_place_size, k_indoor_humid, k_automode, node);
                                 result.add(vo);
@@ -160,7 +159,7 @@ public class ConfigFragment extends Fragment {
     public ArrayList<Z_List_VO> zlist() {
         ArrayList<Z_List_VO> result = new ArrayList<Z_List_VO>();
 
-        String url = "http://192.168.1.9:8084/Project/GetAll_Z_Detail_Info.do";
+        String url = "http://192.168.1.12:8084/Project/GetAll_Z_Detail_Info.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
