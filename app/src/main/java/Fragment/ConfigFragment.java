@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import Adapter.Config_add_list_Adapter;
 import Model.K_List_VO;
 import Model.Setting_VO;
 import Model.Z_List_VO;
@@ -41,7 +42,8 @@ public class ConfigFragment extends Fragment {
     Button btn_add_set;
     ListView lv_set;
     ArrayList<Setting_VO> data;
-
+    ArrayList<K_List_VO> k_list;
+    ArrayList<Z_List_VO> z_list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,8 +61,10 @@ public class ConfigFragment extends Fragment {
             }
         });
 
-        ArrayList<K_List_VO> k_list = klist();
-        ArrayList<Z_List_VO> z_list = zlist();
+
+
+        k_list = klist();
+        z_list = zlist();
         for (int i = 0; i < k_list.size(); i++) {
 
             int k_numbering = k_list.get(i).getNumbering();
@@ -71,9 +75,9 @@ public class ConfigFragment extends Fragment {
             Setting_VO vo = new Setting_VO(k_numbering, z_numbering, k_size, z_size);
             data.add(vo);
         }
-//        SettingAdapter adapter = new SettingAdapter(getContext(),R.layout.settinglist,data);
-//
-//        lv_set.setAdapter(adapter);
+        Config_add_list_Adapter adapter = new Config_add_list_Adapter(getContext(),R.layout.add_config_list,data);
+
+        lv_set.setAdapter(adapter);
 
 
         return view;
