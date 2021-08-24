@@ -89,7 +89,7 @@ public class ConfigFragment extends Fragment {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
         ArrayList<K_List_VO> result = new ArrayList<K_List_VO>();
-        String url = "http://192.168.1.9:8084/Project/GetAll_K_Detail_Info.do";
+        String url = "http://192.168.1.12:8084/Project/GetAll_K_Detail_Info.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,

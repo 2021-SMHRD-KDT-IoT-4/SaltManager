@@ -62,7 +62,7 @@ public class ControllListFragment extends Fragment {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
             for (cnt=0; cnt<numbering_data.size(); cnt++){
-                String url = "http://192.168.1.20:8084/Project/ControlGet.do";
+                String url = "http://192.168.1.12:8084/Project/ControlGet.do";
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         url,
@@ -114,7 +114,7 @@ public class ControllListFragment extends Fragment {
         }
 
         if(mParam1.equals("z")){
-            String url = "http://192.168.1.20:8084/Project/GetAll_Z_Detail_Info.do";
+            String url = "http://192.168.1.12:8084/Project/GetAll_Z_Detail_Info.do";
             StringRequest request = new StringRequest(
                     Request.Method.POST,
                     url,
