@@ -4,21 +4,110 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.saltmanager.MainActivity;
 import com.example.saltmanager.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import Adapter.Daily_OutPut_Adapter;
+import Model.OutPut_VO;
 
 
 public class HomeFragment extends Fragment {
 
-
+    Daily_OutPut_Adapter adapter;
+    ListView lv;
+    ArrayList<OutPut_VO> data;
+    RequestQueue requestQueue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        data = new ArrayList<>();
+        lv = view.findViewById(R.id.lv_daily_pord);
+
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        }
+        data = new ArrayList<OutPut_VO>();
+        adapter = new Daily_OutPut_Adapter((MainActivity)getContext(),R.layout.detail_item,data);
+        String url = "http://192.168.1.12:8084/Project/GetAll_Z_Detail_Info.do";
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Log.d("test",response);
+                            JSONObject json = new JSONObject(response);
+                            JSONArray json2 = json.getJSONArray("data");
+                            Log.d("data",json2+"");
+                            for (int i = 0; i < json2.length(); i++) {
+                                JSONObject json3 = (JSONObject) json2.get(i);
+
+                                String date_search;
+                                int prod;
+                                OutPut_VO vo = new OutPut_VO(0,"2020",100);
+                                data.add(vo);
+
+                            }
+
+                            adapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+        ) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("req", "1");
+
+
+                return params;
+            }
+        };
+        requestQueue.add(request);
+
+
+
+
+        lv.setAdapter(adapter);
+        return view;
     }
 }
