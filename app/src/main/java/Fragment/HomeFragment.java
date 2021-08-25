@@ -39,6 +39,9 @@ public class HomeFragment extends Fragment {
     ListView lv;
     ArrayList<OutPut_VO> data;
     RequestQueue requestQueue;
+    int numbering;
+    String date_search;
+    int prod;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,8 +54,8 @@ public class HomeFragment extends Fragment {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
         data = new ArrayList<OutPut_VO>();
-        adapter = new Daily_OutPut_Adapter((MainActivity)getContext(),R.layout.detail_item,data);
-        String url = "http://192.168.1.12:8084/Project/GetAll_Z_Detail_Info.do";
+        adapter = new Daily_OutPut_Adapter((MainActivity)getContext(),R.layout.prod_item,data);
+        String url = "http://192.168.1.12:8084/Project/GetAll_K_Detail_Info.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
@@ -60,16 +63,15 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Log.d("test",response);
                             JSONObject json = new JSONObject(response);
                             JSONArray json2 = json.getJSONArray("data");
-                            Log.d("data",json2+"");
                             for (int i = 0; i < json2.length(); i++) {
                                 JSONObject json3 = (JSONObject) json2.get(i);
 
-                                String date_search;
-                                int prod;
-                                OutPut_VO vo = new OutPut_VO(0,"2020",100);
+                                numbering = json3.getInt("numbering");
+                                date_search = json3.getString("k_harvest");
+                                prod = json3.getInt("k_daily_prod");
+                                OutPut_VO vo = new OutPut_VO(numbering,date_search,prod);
                                 data.add(vo);
 
                             }
@@ -103,11 +105,7 @@ public class HomeFragment extends Fragment {
             }
         };
         requestQueue.add(request);
-
-
-
-//
-//        lv.setAdapter(adapter);
+        lv.setAdapter(adapter);
         return view;
     }
 }

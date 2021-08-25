@@ -57,7 +57,7 @@ public class Daily_OutPut_Adapter extends BaseAdapter {
 
 
         tv_prod_date.setText(data.get(position).getDate());
-        tv_dailly_output.setText(data.get(position).getProd());
+        tv_dailly_output.setText(data.get(position).getProd()+"");
 
 
         return convertView;
