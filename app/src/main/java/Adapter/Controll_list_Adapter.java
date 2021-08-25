@@ -5,6 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.saltmanager.R;
 
 import java.util.List;
 
@@ -32,29 +36,37 @@ public class Controll_list_Adapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return data.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return data.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
 
-        if(arg.equals("z")){
-
-        }else if (arg.equals("k")){
-
+        if (view == null){
+            view = inflater.inflate(layout, null);
         }
 
+        TextView tv_controll_numbering = view.findViewById(R.id.tv_controll_numbering);
+        TextView tv_controll_zk = view.findViewById(R.id.tv_controll_zk);
 
-        return convertView;
+        Button btn_controll_move = view.findViewById(R.id.btn_controll_move);
+        tv_controll_numbering.setText(data.get(i).getC_numbering()+"");
+        if (arg.equals("z")){
+            tv_controll_zk.setText("증발지");
+        }else if(arg.equals("k")) {
+            tv_controll_zk.setText("결정지");
+        }
+
+        return view;
     }
 }

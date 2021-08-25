@@ -6,19 +6,6 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_controll_state"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="#EEF6FB"
-        android:fontFamily="@font/nanumsquare_aceb"
-        android:gravity="center"
-        android:text="40.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_controll"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="91dp" />
-
-    <TextView
         android:id="@+id/tv_controll_numbering"
         android:layout_width="40dp"
         android:layout_height="80dp"
@@ -33,26 +20,13 @@
 
     <TextView
         android:id="@+id/tv_controll_zk"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="80dp"
         android:background="#EEF6FB"
         android:fontFamily="@font/nanumsquare_aceb"
         android:gravity="center"
         android:text="결정지"
         app:layout_constraintStart_toEndOf="@+id/tv_controll_numbering"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="193dp"
-        tools:layout_editor_absoluteY="354dp" />
-
-    <TextView
-        android:id="@+id/tv_controll"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="#EEF6FB"
-        android:fontFamily="@font/nanumsquare_aceb"
-        android:gravity="center"
-        android:text="제어상태"
-        app:layout_constraintStart_toEndOf="@+id/tv_controll_zk"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -61,20 +35,22 @@
         android:layout_height="80dp"
         android:background="#EEF6FB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_controll_state"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_controll_move"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTint="#7DBDFE"
         android:fontFamily="@font/nanumsquare_aceb"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="제어"
         app:layout_constraintBottom_toBottomOf="@+id/textView160"
         app:layout_constraintEnd_toEndOf="@+id/textView160"
-        app:layout_constraintStart_toEndOf="@+id/tv_controll_state"
-        app:layout_constraintTop_toTopOf="@+id/textView160" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_controll_zk"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
