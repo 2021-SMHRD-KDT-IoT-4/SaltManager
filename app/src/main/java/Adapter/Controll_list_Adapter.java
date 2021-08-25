@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,13 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.saltmanager.MainActivity;
 import com.example.saltmanager.R;
 
 import java.util.List;
 
+import Fragment.ControllFragment;
+import Fragment.ControllSensorFragment;
 import Model.Controller_VO;
 
 public class Controll_list_Adapter extends BaseAdapter {
@@ -66,6 +70,9 @@ public class Controll_list_Adapter extends BaseAdapter {
         }else if(arg.equals("k")) {
             tv_controll_zk.setText("결정지");
         }
+
+
+
 
         return view;
     }

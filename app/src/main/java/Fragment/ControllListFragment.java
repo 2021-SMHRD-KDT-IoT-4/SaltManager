@@ -65,6 +65,7 @@ public class ControllListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_controll_list, container, false);
+        lv = view.findViewById(R.id.lv_controll_list);
 
         data = new ArrayList<Controller_VO>();
 
@@ -75,7 +76,7 @@ public class ControllListFragment extends Fragment {
         if (mParam1.equals("z")){
 
             adapter = new Controll_list_Adapter((MainActivity)getContext(),R.layout.controll_list,data,mParam1);
-            String url = "http://192.168.1.12:8084/Project/Get_All_Controll_Controller.do";
+            String url = "http://192.168.1.12:8084/Project/GetAllControl.do";
             StringRequest request = new StringRequest(
                     Request.Method.POST,
                     url,
@@ -90,9 +91,8 @@ public class ControllListFragment extends Fragment {
                                 for (int i = 0; i < json2.length(); i++) {
                                     JSONObject json3 = (JSONObject) json2.get(i);
                                     int numbering = Integer.parseInt(json3.getString("numbering"));
-
                                     int z_c_fan_now = Integer.parseInt(json3.getString("fan"));
-                                    int z_c_pump_now = Integer.parseInt(json3.getString("pump_now"));
+                                    int z_c_pump_now = Integer.parseInt(json3.getString("pump"));
                                     int z_c_wire_now = Integer.parseInt(json3.getString("wire"));
                                     int z_c_pusher_now = Integer.parseInt(json3.getString("pusher"));
                                     int z_c_conveyer_now = Integer.parseInt(json3.getString("conveyer"));
@@ -127,7 +127,7 @@ public class ControllListFragment extends Fragment {
                 protected Map<String, String> getParams() throws AuthFailureError {
 
                     Map<String, String> params = new HashMap<>();
-                    params.put("req", "1");
+                    //params.put("req", "1");
 
 
                     return params;
@@ -138,7 +138,7 @@ public class ControllListFragment extends Fragment {
         }else if(mParam1.equals("k")){
 
             adapter = new Controll_list_Adapter((MainActivity)getContext(),R.layout.controll_list,data,mParam1);
-            String url = "http://192.168.1.12:8084/Project/Get_All_Controll_Controller.do";
+            String url = "http://192.168.1.12:8084/Project/GetAllControl.do";
             StringRequest request = new StringRequest(
                     Request.Method.POST,
                     url,
@@ -152,7 +152,6 @@ public class ControllListFragment extends Fragment {
                                 for (int i = 0; i < json2.length(); i++) {
                                     JSONObject json3 = (JSONObject) json2.get(i);
                                     int numbering = Integer.parseInt(json3.getString("numbering"));
-
                                     int k_c_fan_now = Integer.parseInt(json3.getString("fan"));
                                     int k_c_pump_now = Integer.parseInt(json3.getString("pump"));
                                     int k_c_wire_now = Integer.parseInt(json3.getString("wire"));
