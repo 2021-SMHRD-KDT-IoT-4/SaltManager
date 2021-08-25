@@ -14,6 +14,7 @@ import com.example.saltmanager.R;
 
 import java.util.List;
 
+import Fragment.ControllActurator;
 import Fragment.ControllFragment;
 import Fragment.ControllSensorFragment;
 import Model.Controller_VO;
@@ -25,7 +26,7 @@ public class Controll_list_Adapter extends BaseAdapter {
     List<Controller_VO> data;
     String arg;
     LayoutInflater inflater;
-
+    Button btn_controll_move;
 
 
     public  Controll_list_Adapter(Context context, int layout, List<Controller_VO> data,String arg){
@@ -63,13 +64,28 @@ public class Controll_list_Adapter extends BaseAdapter {
         TextView tv_controll_numbering = view.findViewById(R.id.tv_controll_numbering);
         TextView tv_controll_zk = view.findViewById(R.id.tv_controll_zk);
 
-        Button btn_controll_move = view.findViewById(R.id.btn_controll_move);
+        btn_controll_move = view.findViewById(R.id.btn_controll_move);
         tv_controll_numbering.setText(data.get(i).getC_numbering()+"");
         if (arg.equals("z")){
             tv_controll_zk.setText("증발지");
         }else if(arg.equals("k")) {
             tv_controll_zk.setText("결정지");
         }
+
+        btn_controll_move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences spf = context.getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+
+                    ((MainActivity)context).changeFragment(new ControllActurator(data.get(i)),"");
+
+
+
+
+
+            }
+        });
 
 
 
