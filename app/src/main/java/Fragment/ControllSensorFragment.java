@@ -264,7 +264,9 @@ public class ControllSensorFragment extends Fragment {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-
+                                if(response.equals("1")){
+                                    Toast.makeText(getContext(),response+"",Toast.LENGTH_SHORT).show();
+                                }
                             }
                         },
                         new Response.ErrorListener() {
