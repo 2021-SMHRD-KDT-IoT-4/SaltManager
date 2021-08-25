@@ -14,7 +14,7 @@ import com.example.saltmanager.R;
 
 public class ControllActurator extends Fragment {
 
-    TextView
+
 
 
     @Override
