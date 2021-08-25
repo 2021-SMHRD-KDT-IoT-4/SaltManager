@@ -106,8 +106,8 @@ public class HomeFragment extends Fragment {
 
 
 
-
-        lv.setAdapter(adapter);
+//
+//        lv.setAdapter(adapter);
         return view;
     }
 }
