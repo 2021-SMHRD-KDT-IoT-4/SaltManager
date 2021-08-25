@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +9,14 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.saltmanager.MainActivity;
 import com.example.saltmanager.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import Fragment.ControllSensorFragment;
+import Fragment.SensorFragment;
 import Model.K_List_VO;
 import Model.Z_List_VO;
 
@@ -94,6 +98,22 @@ public class Sensor_list_Adapter extends BaseAdapter {
                 tv_sensor_indoorTemp.setText(k_data.get(i).getK_indoor_temp()+"");
                 tv_sensor_waterTemp.setText(k_data.get(i).getK_water_temp()+"");
         }
+        btn_sensor_move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences spf = context.getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+
+                if (arg.equals("z")){
+                    ((MainActivity)context).changeFragment(new ControllSensorFragment(z_data.get(i)),"");
+                }else if(arg.equals("k")) {
+                    ((MainActivity)context).changeFragment(new ControllSensorFragment(k_data.get(i)),"");
+                }
+
+
+
+            }
+        });
 
 
         return view;
