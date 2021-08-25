@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saltmanager.LoginActivity;
 import com.example.saltmanager.MainActivity;
 import com.example.saltmanager.R;
 
@@ -257,7 +258,7 @@ public class ControllSensorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String url2 = "http://192.168.1.12:8084/Project/Update_Auto_Running.do";
-                StringRequest request = new StringRequest(
+                StringRequest request2 = new StringRequest(
                         Request.Method.POST,
                         url2,
                         new Response.Listener<String>() {
@@ -284,23 +285,25 @@ public class ControllSensorFragment extends Fragment {
                         params.put("pump_run", water_high+"");
                         params.put("light_run", "1");
                         params.put("stalinity_run", "1");
+                        params.put("req", "1");
+
+                        Log.d("===numbering",numbering);
+                        Log.d("===fan_run", indoor_humid+"");
+                        Log.d("===wire_run", water_temp+"");
+                        Log.d("===waterhigh_run", salinity+"");
+                        Log.d("===pump_run", water_high+"");
 
                         return params;
                     }
 
                 };
-                requestQueue.add(request);
+                requestQueue.add(request2);
 
 
 
 
             }
         });
-
-
-
-
-
 
         return view;
     }
