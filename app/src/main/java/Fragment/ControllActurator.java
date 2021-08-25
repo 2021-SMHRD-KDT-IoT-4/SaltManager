@@ -1,5 +1,7 @@
 package Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +47,8 @@ public class ControllActurator extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +72,8 @@ public class ControllActurator extends Fragment {
     Button btn_send_control_info;
 
     RequestQueue requestQueue;
-    String numbering;
+    int numbering;
 
-    int c_numbering = 0;
     int c_fan = 0;
     int c_pump = 0;
     int c_wire = 0;
@@ -77,17 +81,19 @@ public class ControllActurator extends Fragment {
     int c_conveyer = 0;
     int c_light = 0;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_controll_acturator, container, false);
 
+        SharedPreferences spf = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = spf.edit();
+
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
-
+        numbering = cvo.getC_numbering();
         tv_control_all = view.findViewById(R.id.tv_control_all);
         tv_control_fan = view.findViewById(R.id.tv_control_fan);
         tv_control_pump = view.findViewById(R.id.tv_control_pump);
@@ -114,66 +120,170 @@ public class ControllActurator extends Fragment {
 
         btn_send_control_info = view.findViewById(R.id.btn_send_control_info);
 
+        Log.d("fandata",cvo.getC_conveyer()+"");
 
+//        if (cvo.getC_fan() == 1){
+//            sc_control_fan.setChecked(true);
+//        }else {
+//            sc_control_fan.setChecked(false);
+//        }
+//
+//        if (cvo.getC_pump() == 1){
+//            sc_control_pump.setChecked(true);
+//        }else {
+//            sc_control_pump.setChecked(false);
+//
+//        }
+//
+//        if (cvo.getC_wire() == 1) {
+//            sc_control_wire.setChecked(true);
+//        }else {
+//            sc_control_wire.setChecked(false);
+//        }
+//
+//        if (cvo.getC_light() == 1){
+//            sc_control_light.setChecked(true);
+//        }else {
+//            sc_control_light.setChecked(false);
+//        }
+//
+//        if (cvo.getC_pusher() == 1){
+//            sc_control_pusher.setChecked(true);
+//        }else {
+//            sc_control_pusher.setChecked(false);
+//        }
+//
+//        if(cvo.getC_conveyer() == 1){
+//            sc_control_conveyer.setChecked(true);
+//        }else {
+//            sc_control_conveyer.setChecked(false);
+//        }
+        sc_control_fan.setChecked(spf.getBoolean("c_fan",false));
+        sc_control_pump.setChecked(spf.getBoolean("c_pump",false));
+        sc_control_wire.setChecked(spf.getBoolean("c_wire",false));
+        sc_control_pusher.setChecked(spf.getBoolean("c_pusher",false));
+        sc_control_conveyer.setChecked(spf.getBoolean("c_conveyer",false));
+        sc_control_light.setChecked(spf.getBoolean("c_light",false));
 
-        String url = "http://192.168.1.12:8084/Project/GetAllControl.do";
-        StringRequest request = new StringRequest(
-                Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            Log.d("test",response);
-                            JSONObject json = new JSONObject(response);
-                            JSONArray json2 = json.getJSONArray("data");
-                            Log.d("data",json2+"");
-                            for (int i = 0; i < json2.length(); i++) {
-                                JSONObject json3 = (JSONObject) json2.get(i);
-                                int numbering = Integer.parseInt(json3.getString("numbering"));
-                                int c_fan_now = Integer.parseInt(json3.getString("fan"));
-                                int c_pump_now = Integer.parseInt(json3.getString("pump"));
-                                int c_wire_now = Integer.parseInt(json3.getString("wire"));
-                                int c_pusher_now = Integer.parseInt(json3.getString("pusher"));
-                                int c_conveyer_now = Integer.parseInt(json3.getString("conveyer"));
-                                int c_light_now = Integer.parseInt(json3.getString("light"));
-                                int c_camera_now = Integer.parseInt(json3.getString("camera"));
-                                int c_part_now = Integer.parseInt(json3.getString("part"));
-
-
-                                Controller_VO vo = new Controller_VO(numbering,c_fan_now,c_pump_now,c_wire_now,c_pusher_now,c_conveyer_now,c_light_now,c_camera_now,c_part_now);
-                                data.add(vo);
-                            }
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-
-        ) {
-
+        sc_control_fan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<>();
-                //params.put("req", "1");
-
-
-                return params;
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_fan = 1;
+                }else {
+                    c_fan = 0;
+                }
+                editor.putBoolean("c_fan",isChecked).commit();
             }
-        };
-        requestQueue.add(request);
+        });
+
+        sc_control_pump.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_pump = 1;
+                }else {
+                    c_pump = 0;
+                }
+                editor.putBoolean("c_pump",isChecked).commit();
+            }
+        });
+
+        sc_control_wire.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_wire = 1;
+                }else {
+                    c_wire = 0;
+                }
+                editor.putBoolean("c_wire",isChecked).commit();
+            }
+        });
+
+        sc_control_pusher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_pusher = 1;
+                }else {
+                    c_pusher = 0;
+                }
+                editor.putBoolean("c_pusher",isChecked).commit();
+            }
+        });
+
+        sc_control_conveyer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_conveyer = 1;
+                }else {
+                    c_conveyer = 0;
+                }
+                editor.putBoolean("c_conveyer",isChecked).commit();
+            }
+        });
+
+        sc_control_light.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    c_light = 1;
+                }else {
+                    c_light = 0;
+                }
+                editor.putBoolean("c_light",isChecked).commit();
+            }
+        });
+
+        btn_send_control_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url2 = "http://192.168.1.12:8084/Project/Update_All_Controll.do";
+                StringRequest request2 = new StringRequest(
+                        Request.Method.POST,
+
+                        url2,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                if(response.equals("1")){
+                                    Toast.makeText(getContext(),response+"",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getContext(),"접속실패",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                ){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                        Map<String, String> params = new HashMap<>();
+                        params.put("numbering",numbering+"");
+                        params.put("fan",c_fan+"");
+                        params.put("pump",c_pump+"");
+                        params.put("wire",c_wire+"");
+                        params.put("pusher",c_pusher+"");
+                        params.put("conveyer",c_conveyer+"" );
+                        params.put("light", c_light+"");
+                        params.put("camera", "1" );
+                         params.put("req","1");
+
+
+                        return params;
+                    }
+
+                };
+                requestQueue.add(request2);
+
+            }
+        });
+
 
         return view;
     }

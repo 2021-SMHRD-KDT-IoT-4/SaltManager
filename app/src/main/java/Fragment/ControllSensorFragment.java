@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,16 +73,19 @@ public class ControllSensorFragment extends Fragment {
     Button btn_sensor_info_send;
     RequestQueue requestQueue;
     String numbering;
-    int salinity = 0;
-    int indoor_humid = 0;
-    int water_temp = 0;
-    int wire_temp = 0;
-    int water_high = 0;
+    int salinity;
+    int indoor_humid;
+    int water_temp;
+    int wire_temp;
+    int water_high;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_controll_sensor, container, false);
 
+        SharedPreferences spf = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = spf.edit();
         tv_sensor_title = view.findViewById(R.id.tv_sensor_title);
 
         tv_z_salinity_now = view.findViewById(R.id.tv_z_salinity_now);
@@ -110,6 +114,8 @@ public class ControllSensorFragment extends Fragment {
         btn_z_water_high_m = view.findViewById(R.id.btn_z_water_high_m);
         btn_sensor_info_send = view.findViewById(R.id.btn_send_sensor_info);
 
+
+
         if (zvo != null) {
             numbering = Integer.toString(zvo.getNumbering());
             tv_z_salinity_now.setText(zvo.getZ_salinity()+"");
@@ -135,54 +141,58 @@ public class ControllSensorFragment extends Fragment {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
         }
-        String url = "http://192.168.1.12:8084/Project/GetAuto_Running.do";
-        StringRequest request = new StringRequest(
-                Request.Method.POST,
-                url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try {
-                            JSONObject json = new JSONObject(response);
-                            Toast.makeText(getContext(),json+"",Toast.LENGTH_SHORT).show();
-                            indoor_humid = json.getInt("fan_run");
-                            water_temp = json.getInt("wire_run");
-                            salinity = json.getInt("waterhigh_run");
-                            water_high = json.getInt("pump_run");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(),"접속실패",Toast.LENGTH_SHORT).show();
-                    }
-                }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<>();
-                params.put("numbering", numbering);
-
-                return params;
-            }
-
-        };
-        requestQueue.add(request);
-
-
-
-        tv_z_salinity_set.setText(Integer.toString(salinity));
+//        String url = "http://192.168.1.12:8084/Project/GetAuto_Running.do";
+//        StringRequest request = new StringRequest(
+//                Request.Method.POST,
+//                url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        try {
+//                            JSONObject json = new JSONObject(response);
+//                            Toast.makeText(getContext(),json+"",Toast.LENGTH_SHORT).show();
+//                            indoor_humid = json.getInt("fan_run");
+//                            water_temp = json.getInt("wire_run");
+//                            salinity = json.getInt("waterhigh_run");
+//                            water_high = json.getInt("pump_run");
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getContext(),"접속실패",Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        ){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//
+//                Map<String, String> params = new HashMap<>();
+//                params.put("numbering", numbering);
+//
+//                return params;
+//            }
+//
+//        };
+//        requestQueue.add(request);
+        salinity = spf.getInt("salinity",1);
         tv_z_indoor_temp_set.setText("xx");
-        tv_z_indoor_humid_set.setText(Integer.toString(indoor_humid));
-        tv_z_water_temp_set.setText(Integer.toString(water_temp));
-        tv_z_wire_temp_set.setText(Integer.toString(wire_temp));
-        tv_z_water_high_set.setText(Integer.toString(water_high));
+        indoor_humid = spf.getInt("indoor_humid",1);
+        water_temp = spf.getInt("water_temp",0);
+        wire_temp = spf.getInt("wire_temp",0);
+        water_high = spf.getInt("water_high",0);
 
+
+        tv_z_salinity_set.setText(salinity+"");
+        tv_z_indoor_temp_set.setText("xx");
+        tv_z_indoor_humid_set.setText(indoor_humid+"");
+        tv_z_water_temp_set.setText(water_temp+"");
+        tv_z_wire_temp_set.setText(wire_temp+"");
+        tv_z_water_high_set.setText(water_high+"");
         btn_z_salinity_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,6 +205,8 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 salinity--;
                 tv_z_salinity_set.setText(Integer.toString(salinity));
+
+
             }
         });
         btn_z_indoor_humid_p.setOnClickListener(new View.OnClickListener() {
@@ -202,6 +214,7 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 indoor_humid++;
                 tv_z_indoor_humid_set.setText(Integer.toString(indoor_humid));
+                editor.putInt("salinity",salinity).commit();
             }
         });
         btn_z_indoor_humid_m.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +222,7 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 indoor_humid--;
                 tv_z_indoor_humid_set.setText(Integer.toString(indoor_humid));
+                editor.putInt("indoor_humid",indoor_humid).commit();
             }
         });
         btn_z_water_temp_p.setOnClickListener(new View.OnClickListener() {
@@ -216,6 +230,7 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 water_temp++;
                 tv_z_water_temp_set.setText(Integer.toString(water_temp));
+                editor.putInt("water_temp",water_temp).commit();
             }
         });
         btn_z_water_temp_m.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +238,7 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 water_temp--;
                 tv_z_water_temp_set.setText(Integer.toString(water_temp));
+                editor.putInt("water_temp",water_temp).commit();
             }
         });
         btn_z_wire_temp_p.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +246,7 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 wire_temp++;
                 tv_z_wire_temp_set.setText(Integer.toString(wire_temp));
+                editor.putInt("wire_temp",wire_temp).commit();
             }
         });
         btn_z_wire_temp_m.setOnClickListener(new View.OnClickListener() {
@@ -237,6 +254,8 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 wire_temp--;
                 tv_z_wire_temp_set.setText(Integer.toString(wire_temp));
+                editor.putInt("wire_temp",wire_temp).commit();
+
             }
         });
         btn_z_water_high_p.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +263,8 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 water_high++;
                 tv_z_water_high_set.setText(Integer.toString(water_high));
+
+                editor.putInt("water_high",water_high).commit();
             }
         });
         btn_z_water_high_m.setOnClickListener(new View.OnClickListener() {
@@ -251,9 +272,10 @@ public class ControllSensorFragment extends Fragment {
             public void onClick(View v) {
                 water_high--;
                 tv_z_water_high_set.setText(Integer.toString(water_high));
+
+                editor.putInt("water_high",water_high).commit();
             }
         });
-
         btn_sensor_info_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -306,6 +328,11 @@ public class ControllSensorFragment extends Fragment {
 
             }
         });
+
+
+
+
+
 
         return view;
     }

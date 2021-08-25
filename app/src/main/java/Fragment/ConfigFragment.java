@@ -1,5 +1,6 @@
 package Fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -51,6 +52,8 @@ public class ConfigFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_config, container, false);
+
+
 
         btn_add_set = view.findViewById(R.id.btn_add_set);
         lv_set = view.findViewById(R.id.lv_set);

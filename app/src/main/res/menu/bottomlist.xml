@@ -4,17 +4,22 @@
 
     <item
         android:id="@+id/nv_home"
+        android:icon="@drawable/house"
         android:title="Home" />
     <item
         android:id="@+id/nv_controll"
+        android:icon="@drawable/controls"
         android:title="제어" />
     <item
         android:id="@+id/nv_sensor"
+        android:icon="@drawable/humidity"
         android:title="센서" />
     <item
         android:id="@+id/nv_cctv"
+        android:icon="@drawable/cctv"
         android:title="CCTV" />
     <item
         android:id="@+id/nv_config"
+        android:icon="@drawable/setting"
         android:title="관리" />
 </menu>
