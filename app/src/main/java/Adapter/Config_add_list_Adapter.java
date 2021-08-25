@@ -54,7 +54,7 @@ public class Config_add_list_Adapter extends BaseAdapter {
 
         TextView tv_k_place_size = convertView.findViewById(R.id.tv_k_place_size);
         TextView tv_z_place_size = convertView.findViewById(R.id.tv_z_place_size);
-        TextView tv_k_numbering = convertView.findViewById(R.id.tv_sensor_numbering);
+        TextView tv_k_numbering = convertView.findViewById(R.id.tv_k_numbering);
         TextView tv_z_numbering = convertView.findViewById(R.id.tv_z_numbering);
 
         tv_k_place_size.setText(data.get(position).getK_place_size());
