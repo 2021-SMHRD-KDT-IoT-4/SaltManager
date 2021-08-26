@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                 String et_id = edt_id.getText().toString();
                 String et_pw = edt_pw.getText().toString();
 
-                String url = "http://192.168.1.12:8084/Project/login.do";
+                String url = "http://192.168.0.88:8087/Project/login.do";
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         url,

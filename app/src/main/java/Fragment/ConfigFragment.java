@@ -68,7 +68,7 @@ public class ConfigFragment extends Fragment {
                 ((MainActivity) getActivity()).changeFragment(new ConfigAddFragment(), "");
             }
         });
-        String url2 = "http://192.168.1.12:8084/Project/GetAll_K_Detail_Info.do";
+        String url2 = "http://192.168.0.88:8087/Project/GetAll_K_Detail_Info.do";
         StringRequest request2 = new StringRequest(
                 Request.Method.POST,
                 url2,
@@ -146,7 +146,7 @@ public class ConfigFragment extends Fragment {
 
         };
 
-        String url = "http://192.168.1.12:8084/Project/GetAll_Z_Detail_Info.do";
+        String url = "http://192.168.0.88:8087/Project/GetAll_Z_Detail_Info.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
