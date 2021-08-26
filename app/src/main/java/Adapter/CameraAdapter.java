@@ -50,16 +50,13 @@ public class CameraAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null){
+            convertView = inflater.inflate(layout, null);
+        }
         TextView tv_cctv_numbering = convertView.findViewById(R.id.tv_cctv_numbering);
         tv_cctv_numbering.setText(data.get(position).getCamera_numbering()+"");
 
-        WebView wv = convertView.findViewById(R.id.wv_cctv);
-        SharedPreferences spf = context.getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-        String address =spf.getString("adress", data.get(position).getCamera_address());
-        WebSettings ws = wv.getSettings();
-        ws.setJavaScriptEnabled(true);
-        wv.setWebViewClient(new WebViewClient());
-        wv.loadUrl(address);
+
 
         return convertView;
     }
