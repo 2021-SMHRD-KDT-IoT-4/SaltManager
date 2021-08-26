@@ -21,8 +21,6 @@ public class Daily_OutPut_Adapter extends BaseAdapter {
 
     LayoutInflater inflater;
 
-
-
     public Daily_OutPut_Adapter(Context context, int layout, List<OutPut_VO> data) {
         this.context = context;
         this.layout = layout;

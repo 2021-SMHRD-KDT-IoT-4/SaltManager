@@ -1,23 +1,14 @@
 package Model;
 
 public class OutPut_VO {
-    private int numbering;
+
     private String date;
     private int prod;
 
 
-    public OutPut_VO(int numbering, String date, int prod) {
-        this.numbering = numbering;
+    public OutPut_VO( String date, int prod) {
         this.date = date;
         this.prod = prod;
-    }
-
-    public int getNumbering() {
-        return numbering;
-    }
-
-    public void setNumbering(int numbering) {
-        this.numbering = numbering;
     }
 
     public String getDate() {

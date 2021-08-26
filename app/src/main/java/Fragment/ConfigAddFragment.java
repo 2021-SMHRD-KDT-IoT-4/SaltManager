@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -31,7 +32,7 @@ import java.util.Map;
 import Model.Setting_VO;
 
 public class ConfigAddFragment extends Fragment {
-
+    final int MY_SOCKET_TIMEOUT_MS = 5000;
     EditText et_z_add_size, et_k_add_size;
     Button btn_add_config;
 
@@ -106,6 +107,10 @@ public class ConfigAddFragment extends Fragment {
                     }
 
                 };
+                request.setRetryPolicy(new DefaultRetryPolicy(
+                        MY_SOCKET_TIMEOUT_MS,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
 
                 requestQueue.add(request);
