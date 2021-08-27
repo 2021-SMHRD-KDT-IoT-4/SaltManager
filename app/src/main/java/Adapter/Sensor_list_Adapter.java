@@ -101,17 +101,11 @@ public class Sensor_list_Adapter extends BaseAdapter {
         btn_sensor_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences spf = context.getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = spf.edit();
-
                 if (arg.equals("z")){
                     ((MainActivity)context).changeFragment(new ControllSensorFragment(z_data.get(i)),"");
                 }else if(arg.equals("k")) {
                     ((MainActivity)context).changeFragment(new ControllSensorFragment(k_data.get(i)),"");
                 }
-
-
-
             }
         });
 

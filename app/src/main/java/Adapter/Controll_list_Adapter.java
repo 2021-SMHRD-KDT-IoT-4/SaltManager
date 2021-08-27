@@ -2,6 +2,7 @@ package Adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,12 @@ public class Controll_list_Adapter extends BaseAdapter {
     Button btn_controll_move;
 
 
-    public  Controll_list_Adapter(Context context, int layout, List<Controller_VO> data,String arg){
+    public Controll_list_Adapter(Context context, int layout, List<Controller_VO> data, String arg) {
         this.context = context;
         this.layout = layout;
         this.data = data;
         this.arg = arg;
-        inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
@@ -57,7 +58,7 @@ public class Controll_list_Adapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        if (view == null){
+        if (view == null) {
             view = inflater.inflate(layout, null);
         }
 
@@ -65,29 +66,20 @@ public class Controll_list_Adapter extends BaseAdapter {
         TextView tv_controll_zk = view.findViewById(R.id.tv_controll_zk);
 
         btn_controll_move = view.findViewById(R.id.btn_controll_move);
-        tv_controll_numbering.setText(data.get(i).getC_numbering()+"");
-        if (arg.equals("z")){
+        tv_controll_numbering.setText(data.get(i).getC_numbering() + "");
+        if (arg.equals("z")) {
             tv_controll_zk.setText("증발지");
-        }else if(arg.equals("k")) {
+        } else if (arg.equals("k")) {
             tv_controll_zk.setText("결정지");
         }
-
+        Log.d("Contorll_list_Adapter",data.get(i).getC_numbering()+"");
         btn_controll_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences spf = context.getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = spf.edit();
 
-                    ((MainActivity)context).changeFragment(new ControllActurator(data.get(i)),"");
-
-
-
-
-
+                ((MainActivity) context).changeFragment(new ControllActurator(data.get(i)), "");
             }
         });
-
-
 
 
         return view;

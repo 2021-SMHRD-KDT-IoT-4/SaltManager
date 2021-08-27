@@ -53,8 +53,8 @@ public class CameraAdapter extends BaseAdapter {
         if (convertView == null){
             convertView = inflater.inflate(layout, null);
         }
-        TextView tv_cctv_numbering = convertView.findViewById(R.id.tv_cctv_numbering);
-        tv_cctv_numbering.setText(data.get(position).getCamera_numbering()+"");
+        TextView tv_cctv_numbering = convertView.findViewById(R.id.tv_cctv_num);
+        tv_cctv_numbering.setText(data.get(position).getCamera_numbering()+" 번 CCTV");
 
 
 

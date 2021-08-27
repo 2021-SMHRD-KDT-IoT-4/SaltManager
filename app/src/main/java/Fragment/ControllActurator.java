@@ -74,7 +74,7 @@ public class ControllActurator extends Fragment {
     RequestQueue requestQueue;
     int numbering;
 
-    int c_fan = 0;
+    int c_fan =0;
     int c_pump = 0;
     int c_wire = 0;
     int c_pusher = 0;
@@ -86,21 +86,16 @@ public class ControllActurator extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_controll_acturator, container, false);
 
-        SharedPreferences spf = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = spf.edit();
-
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
         numbering = cvo.getC_numbering();
-        tv_control_all = view.findViewById(R.id.tv_control_all);
-        tv_control_fan = view.findViewById(R.id.tv_control_fan);
-        tv_control_pump = view.findViewById(R.id.tv_control_pump);
-        tv_control_wire = view.findViewById(R.id.tv_control_wire);
-        tv_control_light = view.findViewById(R.id.tv_control_light);
-        tv_control_pusher = view.findViewById(R.id.tv_control_pusher);
-        tv_control_conveyer = view.findViewById(R.id.tv_control_conveyer);
+         c_fan = cvo.getC_fan();
+         c_pump = cvo.getC_pump();
+         c_wire = cvo.getC_wire();
+         c_pusher = cvo.getC_pusher();
+         c_conveyer = cvo.getC_conveyer();
+         c_light = cvo.getC_light();
 
         sc_control_all = view.findViewById(R.id.sc_control_all);
         sc_control_fan = view.findViewById(R.id.sc_control_fan);
@@ -110,60 +105,47 @@ public class ControllActurator extends Fragment {
         sc_control_pusher = view.findViewById(R.id.sc_control_pusher);
         sc_control_conveyer = view.findViewById(R.id.sc_control_conveyer);
 
-        tv_state_all = view.findViewById(R.id.tv_state_all);
-        tv_state_fan = view.findViewById(R.id.tv_state_fan);
-        tv_state_pump = view.findViewById(R.id.tv_state_pump);
-        tv_state_wire = view.findViewById(R.id.tv_state_wire);
-        tv_state_light = view.findViewById(R.id.tv_state_light);
-        tv_state_pusher = view.findViewById(R.id.tv_state_pusher);
-        tv_state_conveyer = view.findViewById(R.id.tv_state_conveyer);
-
         btn_send_control_info = view.findViewById(R.id.btn_send_control_info);
 
         Log.d("fandata",cvo.getC_conveyer()+"");
 
-//        if (cvo.getC_fan() == 1){
-//            sc_control_fan.setChecked(true);
-//        }else {
-//            sc_control_fan.setChecked(false);
-//        }
-//
-//        if (cvo.getC_pump() == 1){
-//            sc_control_pump.setChecked(true);
-//        }else {
-//            sc_control_pump.setChecked(false);
-//
-//        }
-//
-//        if (cvo.getC_wire() == 1) {
-//            sc_control_wire.setChecked(true);
-//        }else {
-//            sc_control_wire.setChecked(false);
-//        }
-//
-//        if (cvo.getC_light() == 1){
-//            sc_control_light.setChecked(true);
-//        }else {
-//            sc_control_light.setChecked(false);
-//        }
-//
-//        if (cvo.getC_pusher() == 1){
-//            sc_control_pusher.setChecked(true);
-//        }else {
-//            sc_control_pusher.setChecked(false);
-//        }
-//
-//        if(cvo.getC_conveyer() == 1){
-//            sc_control_conveyer.setChecked(true);
-//        }else {
-//            sc_control_conveyer.setChecked(false);
-//        }
-        sc_control_fan.setChecked(spf.getBoolean("c_fan",false));
-        sc_control_pump.setChecked(spf.getBoolean("c_pump",false));
-        sc_control_wire.setChecked(spf.getBoolean("c_wire",false));
-        sc_control_pusher.setChecked(spf.getBoolean("c_pusher",false));
-        sc_control_conveyer.setChecked(spf.getBoolean("c_conveyer",false));
-        sc_control_light.setChecked(spf.getBoolean("c_light",false));
+        if (cvo.getC_fan() == 1){
+            sc_control_fan.setChecked(true);
+        }else {
+            sc_control_fan.setChecked(false);
+        }
+
+        if (cvo.getC_pump() == 1){
+            sc_control_pump.setChecked(true);
+        }else {
+            sc_control_pump.setChecked(false);
+
+        }
+
+        if (cvo.getC_wire() == 1) {
+            sc_control_wire.setChecked(true);
+        }else {
+            sc_control_wire.setChecked(false);
+        }
+
+        if (cvo.getC_light() == 1){
+            sc_control_light.setChecked(true);
+        }else {
+            sc_control_light.setChecked(false);
+        }
+
+        if (cvo.getC_pusher() == 1){
+            sc_control_pusher.setChecked(true);
+        }else {
+            sc_control_pusher.setChecked(false);
+        }
+
+        if(cvo.getC_conveyer() == 1){
+            sc_control_conveyer.setChecked(true);
+        }else {
+            sc_control_conveyer.setChecked(false);
+        }
+
 
         sc_control_fan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -173,7 +155,7 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_fan = 0;
                 }
-                editor.putBoolean("c_fan",isChecked).commit();
+
             }
         });
 
@@ -185,7 +167,7 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_pump = 0;
                 }
-                editor.putBoolean("c_pump",isChecked).commit();
+
             }
         });
 
@@ -197,7 +179,7 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_wire = 0;
                 }
-                editor.putBoolean("c_wire",isChecked).commit();
+
             }
         });
 
@@ -209,7 +191,7 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_pusher = 0;
                 }
-                editor.putBoolean("c_pusher",isChecked).commit();
+
             }
         });
 
@@ -221,7 +203,7 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_conveyer = 0;
                 }
-                editor.putBoolean("c_conveyer",isChecked).commit();
+
             }
         });
 
@@ -233,14 +215,15 @@ public class ControllActurator extends Fragment {
                 }else {
                     c_light = 0;
                 }
-                editor.putBoolean("c_light",isChecked).commit();
+
             }
         });
 
         btn_send_control_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url2 = "http://192.168.1.12:8084/Project/Update_All_Controll.do";
+
+                String url2 = "http://192.168.0.88:8087/Project/Update_All_Controll.do";
                 StringRequest request2 = new StringRequest(
                         Request.Method.POST,
 
@@ -272,14 +255,19 @@ public class ControllActurator extends Fragment {
                         params.put("conveyer",c_conveyer+"" );
                         params.put("light", c_light+"");
                         params.put("camera", "1" );
-                         params.put("req","1");
+                        params.put("req","1");
 
 
                         return params;
                     }
 
                 };
+
                 requestQueue.add(request2);
+
+
+
+
 
             }
         });

@@ -73,7 +73,7 @@ public class ConfigAddFragment extends Fragment {
                 String z_place_size1 = et_z_add_size.getText().toString();
                 String k_place_size1 = et_k_add_size.getText().toString();
 
-                String url = "http://192.168.1.12:8084/Project/InsertSaltern.do";
+                String url = "http://192.168.0.88:8087/Project/InsertSaltern.do";
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         url,
