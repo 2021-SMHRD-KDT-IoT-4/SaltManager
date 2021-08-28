@@ -31,7 +31,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:text="자동모드"
@@ -67,7 +67,7 @@
                 android:layout_width="250dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="환풍기"
                 android:textSize="24sp" />
@@ -102,7 +102,7 @@
                 android:layout_width="250dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="펌프"
                 android:textSize="24sp" />
@@ -137,7 +137,7 @@
                 android:layout_width="250dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="열선"
                 android:textSize="24sp" />
@@ -172,7 +172,7 @@
                 android:layout_width="250dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="조명"
                 android:textSize="24sp" />
@@ -208,7 +208,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
                 android:layout_weight="0"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="밀대"
                 android:textSize="24sp" />
@@ -243,7 +243,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
                 android:layout_weight="0"
-                android:fontFamily="@font/nanumsquare_aceb"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="컨베이어"
                 android:textSize="24sp" />
@@ -272,6 +272,7 @@
         android:id="@+id/btn_send_control_info"
         android:layout_width="0dp"
         android:layout_height="80dp"
+        android:fontFamily="@font/bmdohyeon"
         android:text="설정값 보내기"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

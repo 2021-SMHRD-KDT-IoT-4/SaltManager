@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#EEF6FB"
-        android:fontFamily="@font/nanumsquare_acr"
+        android:fontFamily="@font/bmdohyeon"
         android:gravity="center"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"

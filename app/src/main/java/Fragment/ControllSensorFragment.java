@@ -132,7 +132,7 @@ public class ControllSensorFragment extends Fragment {
 
         }
         tv_sensor_title.setText(numbering + "번 " + tv_sensor_title.getText().toString());
-        String url = "http://192.168.0.88:8087/Project/GetAuto_Running.do";
+        String url = "http://192.168.1.12:8084/Project/GetAuto_Running.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
@@ -242,7 +242,7 @@ public class ControllSensorFragment extends Fragment {
         btn_sensor_info_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url2 = "http://192.168.0.88:8087/Project/Update_Auto_Running.do";
+                String url2 = "http://192.168.1.12:8084/Project/Update_Auto_Running.do";
                 StringRequest request2 = new StringRequest(
                         Request.Method.POST,
                         url2,

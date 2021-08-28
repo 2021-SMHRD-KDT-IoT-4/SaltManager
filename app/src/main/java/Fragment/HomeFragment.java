@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         data = new ArrayList<OutPut_VO>();
         adapter = new Daily_OutPut_Adapter((MainActivity)getContext(),R.layout.prod_item,data);
 
-        String url = "http://192.168.1.73:8087/Project/GetOutPut.do";
+        String url = "http://192.168.1.12:8084/Project/GetOutPut.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,

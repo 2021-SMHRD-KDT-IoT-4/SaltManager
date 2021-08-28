@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/nanumsquare_acb"
+            android:fontFamily="@font/bmdohyeon"
             android:gravity="center"
             android:text="확인할 염전 선택"
             android:textColor="#000000"
@@ -37,14 +37,14 @@
                 android:layout_marginTop="15dp"
                 android:layout_weight="0"
                 android:backgroundTint="#FEFCDA"
-                android:fontFamily="@font/nanumsquare_acr"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="증발지 (염산면칠산로)"
                 android:textColor="#FDB83B"
                 android:textSize="26sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 app:cornerRadius="10dp" />
 
             <Button
@@ -55,14 +55,14 @@
                 android:layout_marginTop="15dp"
                 android:layout_weight="0"
                 android:backgroundTint="#EEF6FB"
-                android:fontFamily="@font/nanumsquare_acr"
+                android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="결정지 (염산면칠산로)"
                 android:textColor="#7DBDFE"
                 android:textSize="26sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 app:cornerRadius="10dp" />
 
         </LinearLayout>

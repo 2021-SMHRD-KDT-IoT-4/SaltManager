@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="0dp"
-            android:fontFamily="@font/nanumsquare_aceb"
+            android:fontFamily="@font/bmdohyeon"
             android:gravity="center"
             android:paddingLeft="30dp"
             android:text="증발지"
@@ -28,21 +28,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="50dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/bmdohyeon"
                 android:text="센서" />
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="30dp"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/bmdohyeon"
                 android:text="현재값" />
 
             <TextView
@@ -50,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/bmdohyeon"
                 android:text="설정값" />
 
         </LinearLayout>
@@ -83,7 +87,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="0dp"
                         android:layout_weight="0.3"
-                        android:fontFamily="@font/nanumsquare_aceb"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="left|center_vertical"
                         android:outlineProvider="paddedBounds"
                         android:text="염도"
@@ -95,6 +99,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -106,26 +111,31 @@
                         android:layout_height="50dp"
                         android:layout_marginRight="10dp"
                         android:backgroundTint="#45C84A"
+                        android:fontFamily="@font/bmdohyeon"
                         app:cornerRadius="50dp"
                         app:icon="@drawable/add"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"
                         app:iconSize="20dp" />
+
                     <TextView
                         android:id="@+id/tv_z_salinity_set"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
                         android:textSize="18sp" />
+
                     <Button
                         android:id="@+id/btn_z_salinity_m"
                         android:layout_width="40dp"
                         android:layout_height="50dp"
                         android:backgroundTint="#DD3737"
+                        android:fontFamily="@font/bmdohyeon"
                         android:text="ㅡ"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -154,7 +164,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="0dp"
                         android:layout_weight="0.3"
-                        android:fontFamily="@font/nanumsquare_aceb"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="left|center_vertical"
                         android:outlineProvider="paddedBounds"
                         android:text="실내습도"
@@ -166,6 +176,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -177,17 +188,20 @@
                         android:layout_height="50dp"
                         android:layout_marginRight="10dp"
                         android:backgroundTint="#45C84A"
+                        android:fontFamily="@font/bmdohyeon"
                         app:cornerRadius="50dp"
                         app:icon="@drawable/add"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"
                         app:iconSize="20dp" />
+
                     <TextView
                         android:id="@+id/tv_z_indoor_humid_set"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -198,6 +212,7 @@
                         android:layout_width="37dp"
                         android:layout_height="50dp"
                         android:backgroundTint="#DD3737"
+                        android:fontFamily="@font/bmdohyeon"
                         android:text="ㅡ"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -225,7 +240,7 @@
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
-                        android:fontFamily="@font/nanumsquare_aceb"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="left|center_vertical"
                         android:outlineProvider="paddedBounds"
                         android:text="수온"
@@ -237,6 +252,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -248,17 +264,20 @@
                         android:layout_height="50dp"
                         android:layout_marginRight="10dp"
                         android:backgroundTint="#45C84A"
+                        android:fontFamily="@font/bmdohyeon"
                         app:cornerRadius="50dp"
                         app:icon="@drawable/add"
                         app:iconGravity="textStart"
                         app:iconPadding="0dp"
                         app:iconSize="20dp" />
+
                     <TextView
                         android:id="@+id/tv_z_water_temp_set"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -269,6 +288,7 @@
                         android:layout_width="40dp"
                         android:layout_height="50dp"
                         android:backgroundTint="#DD3737"
+                        android:fontFamily="@font/bmdohyeon"
                         android:text="ㅡ"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -296,7 +316,7 @@
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
-                        android:fontFamily="@font/nanumsquare_aceb"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="left|center_vertical"
                         android:outlineProvider="paddedBounds"
                         android:text="수위정보"
@@ -308,6 +328,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="10"
@@ -320,6 +341,7 @@
                         android:layout_height="50dp"
                         android:layout_marginRight="10dp"
                         android:backgroundTint="#45C84A"
+                        android:fontFamily="@font/bmdohyeon"
                         app:cornerRadius="50dp"
                         app:icon="@drawable/add"
                         app:iconGravity="textStart"
@@ -332,6 +354,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/bmdohyeon"
                         android:gravity="center"
                         android:outlineProvider="paddedBounds"
                         android:text="00"
@@ -342,6 +365,7 @@
                         android:layout_width="40dp"
                         android:layout_height="50dp"
                         android:backgroundTint="#DD3737"
+                        android:fontFamily="@font/bmdohyeon"
                         android:text="ㅡ"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -358,6 +382,9 @@
                     android:id="@+id/btn_send_sensor_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:fontFamily="@font/bmdohyeon"
                     android:text="설정값 전송하기" />
             </LinearLayout>
         </ScrollView>

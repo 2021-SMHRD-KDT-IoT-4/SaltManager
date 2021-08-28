@@ -245,53 +245,51 @@ public class ControllActurator extends Fragment {
                     c_autoMode = 0;
                 }
 
-                if (settingFlag) {
-                    settingFlag = false;
-                } else {
-                    String url2 = "http://192.168.1.73:8087/Project/Update_Controll_AutoMode.do";
-                    StringRequest request2 = new StringRequest(
-                            Request.Method.POST,
 
-                            url2,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    if (response.equals("1")) {
-                                        Toast.makeText(getContext(), response + "", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getContext(), "접속실패", Toast.LENGTH_SHORT).show();
+                String url2 = "http://192.168.1.12:8084/Project/Update_Controll_AutoMode.do";
+                StringRequest request2 = new StringRequest(
+                        Request.Method.POST,
+
+                        url2,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                if (response.equals("1")) {
+                                    Toast.makeText(getContext(), response + "", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                    ) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-
-                            Map<String, String> params = new HashMap<>();
-                            params.put("numbering", numbering + "");
-                            params.put("autoMode", c_autoMode + "");
-
-
-                            return params;
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getContext(), "접속실패", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                ) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
 
-                    };
+                        Map<String, String> params = new HashMap<>();
+                        params.put("numbering", numbering + "");
+                        params.put("autoMode", c_autoMode + "");
 
-                    requestQueue.add(request2);
-                }
 
+                        return params;
+                    }
+
+                };
+
+                requestQueue.add(request2);
             }
+
+
         });
 
         btn_send_control_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String url2 = "http://192.168.1.73:8087/Project/Update_All_Controll.do";
+                String url2 = "http://192.168.1.12:8084/Project/Update_All_Controll.do";
                 StringRequest request2 = new StringRequest(
                         Request.Method.POST,
 

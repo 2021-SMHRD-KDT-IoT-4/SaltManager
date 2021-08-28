@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:fontFamily="@font/nanumsquare_acr"
+        android:fontFamily="@font/bmdohyeon"
         android:text="CCTV 목록"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

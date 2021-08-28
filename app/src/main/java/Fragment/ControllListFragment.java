@@ -75,7 +75,7 @@ public class ControllListFragment extends Fragment {
         }
 
         adapter = new Controll_list_Adapter((MainActivity) getContext(), R.layout.controll_list, data, mParam1);
-        String url = "http://192.168.1.73:8087/Project/GetAllControl.do";
+        String url = "http://192.168.1.12:8084/Project/GetAllControl.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
