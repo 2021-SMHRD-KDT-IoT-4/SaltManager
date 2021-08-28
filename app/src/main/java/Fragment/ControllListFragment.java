@@ -75,7 +75,7 @@ public class ControllListFragment extends Fragment {
         }
 
         adapter = new Controll_list_Adapter((MainActivity) getContext(), R.layout.controll_list, data, mParam1);
-        String url = "http://192.168.0.88:8087/Project/GetAllControl.do";
+        String url = "http://192.168.1.73:8087/Project/GetAllControl.do";
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 url,
@@ -99,15 +99,17 @@ public class ControllListFragment extends Fragment {
                                 int light = Integer.parseInt(json3.getString("light"));
                                 int camera = Integer.parseInt(json3.getString("camera"));
                                 int part = Integer.parseInt(json3.getString("part"));
+                                int autoMode = Integer.parseInt(json3.getString("autoMode"));
+
 
                                 if(mParam1.equals("z")){
                                     if(part == 0){
-                                        Controller_VO vo = new Controller_VO(numbering, fan, pump, wire, pusher, conveyer, light, camera, part);
+                                        Controller_VO vo = new Controller_VO(numbering, fan, pump, wire, pusher, conveyer, light, camera, part,autoMode);
                                         data.add(vo);
                                     }
                                 }else{
                                     if(part == 1){
-                                        Controller_VO vo = new Controller_VO(numbering, fan, pump, wire, pusher, conveyer, light, camera, part);
+                                        Controller_VO vo = new Controller_VO(numbering, fan, pump, wire, pusher, conveyer, light, camera, part,autoMode);
                                         data.add(vo);
                                     }
                                 }

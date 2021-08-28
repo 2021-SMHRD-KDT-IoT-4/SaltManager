@@ -11,8 +11,9 @@ public class Controller_VO {
     private int c_light;
     private int c_camera;
     private int c_part;
+    private int autoMode;
 
-    public Controller_VO(int c_numbering, int c_fan, int c_pump, int c_wire, int c_pusher, int c_conveyer, int c_light, int c_camera, int c_part) {
+    public Controller_VO(int c_numbering, int c_fan, int c_pump, int c_wire, int c_pusher, int c_conveyer, int c_light, int c_camera, int c_part, int autoMode) {
         this.c_numbering = c_numbering;
         this.c_fan = c_fan;
         this.c_pump = c_pump;
@@ -22,6 +23,15 @@ public class Controller_VO {
         this.c_light = c_light;
         this.c_camera = c_camera;
         this.c_part = c_part;
+        this.autoMode = autoMode;
+    }
+
+    public int getAutoMode() {
+        return autoMode;
+    }
+
+    public void setAutoMode(int autoMode) {
+        this.autoMode = autoMode;
     }
 
     public int getC_numbering() {

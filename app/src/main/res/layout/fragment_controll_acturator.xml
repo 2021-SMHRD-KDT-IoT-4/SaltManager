@@ -34,7 +34,7 @@
                 android:fontFamily="@font/nanumsquare_aceb"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:text="전체 수동제어"
+                android:text="자동모드"
                 android:textSize="32sp" />
 
             <Switch
